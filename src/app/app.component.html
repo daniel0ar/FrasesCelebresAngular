@@ -5,16 +5,21 @@
   </section>
   <section id="escritores">
     <div id="tablaEscritores" class="container-fluid">
-      <div *ngFor="let escritor of escritores">
+      <div *ngFor="let escritor of escritores" class="buttons">
         <!-->app-escritor></app-escritor-->
         <button class="btn btn-outline-dark" type="button" data-toggle="collapse" attr.data-target="#collapse{{escritor.id}}" aria-hidden="false" attr.aria-controls="collapse{{escritor.id}}">
           {{escritor.nombre}}
         </button>
-        <div class="collapse" id="collapse{{escritor.id}}">
+        <!-->div *ngFor="let frase of frases" class="collapse" id="collapse{{frase.id_escritor}}" *ngIf="{{frase.id_escritor}}">
+            <div class="card card-body">
+                {{frase.texto}}
+            </div>
+        </div-->
+      </div>
+      <div *ngFor="let frase of frases" class="collapse" id="collapse{{frase.id_autor}}">
           <div class="card card-body">
-              #collapse{{escritor.id}}
+              {{frase.texto}}
           </div>
-        </div>
       </div>
     </div>
   </section>
